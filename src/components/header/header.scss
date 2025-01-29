@@ -1,0 +1,47 @@
+.header {
+  background-color: #374375;
+  padding: 20px 30px;
+  position: sticky;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  margin: 0 20px 0 0;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.logo::first-letter {
+  color: #e4807b;
+}
+
+.form{
+// display: flex;
+position:relative;
+width:100%;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 7px;
+  background-color: #fffcf5;
+  color: gray;
+}
+
+.input:focus {
+  outline: solid #e4807b 2px;
+}
+
+.button{
+  position:absolute;
+  right: 20px;
+  color:#374375;
+  padding: 10px;
+}
+
+.button:hover{
+  color:#e4807b;
+}
