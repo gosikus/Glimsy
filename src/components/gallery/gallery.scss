@@ -1,0 +1,17 @@
+.container {
+    padding-top: 90px;
+  columns: 4;
+  margin: auto;
+  max-width: 1200px;
+}
+
+.box {
+  width: 100%;
+  break-inside: avoid;
+}
+
+.box img {
+  max-width: 100%;
+  border-radius: 7px;
+  margin: 7px;
+}

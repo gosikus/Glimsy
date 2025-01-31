@@ -1,30 +1,31 @@
-import { React, useState } from 'react';
+import { useState } from 'react';
+import React from 'react';
+
 import './App.css';
 import GlimsyService from './services/glimsyService.ts';
 import Header from './components/header/Header.tsx';
+import Gallery from './components/gallery/Gallery.tsx';
+import {Photos} from "./common/types.ts"
 
-function App() {
-  const [photos, setPhotos] = useState([]);
+// todo
+// флаг loading и error возвращать через service
+
+const App: React.FC = () => {
   const glimsyService = new GlimsyService();
-  const handler = async () => {
-    let res = await glimsyService.getPhotos();
+
+  const [photos, setPhotos] = useState<Photos[]>([]);
+
+  const fetchData = async (values) => {
+    let res = await glimsyService.getPhotos(values);
     setPhotos([...res]);
   };
+
   return (
     <div className="App">
-      <Header/>
-      {/* <button onClick={handler}>click</button> */}
-      <div className="container">
-        {photos
-          ? photos.map((photo) => (
-              <div className="box" key={photo.id}>
-                <img src={photo.url} alt={photo.alt} />
-              </div>
-            ))
-          : ''}
-      </div>
+      <Header fetchData={fetchData} />
+      <Gallery photos={photos} />
     </div>
   );
-}
+};
 
 export default App;

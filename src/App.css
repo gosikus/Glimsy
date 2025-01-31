@@ -1,20 +1,5 @@
-body{
-    background-color:#fffcf5;
-
-}
-.container{
-    columns:4;
-    margin: 20px auto;
-    max-width: 1200px;
+body {
+  background-color: #fffcf5;
 }
 
-.box{
-    width:100%;
-    break-inside: avoid;
-}
 
-.box img{
-    max-width: 100%;
-    border-radius: 7px;
-    margin: 7px;
-}

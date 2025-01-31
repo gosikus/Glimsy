@@ -1,17 +1,21 @@
-import  React  from 'react';
+import React from 'react';
 import { useState } from 'react';
 import './header.scss';
 
-const Header = () => {
-  const [values, setValues] = useState({
-    title: '',
+interface Props {
+  fetchData: (values: { request: string }) => void;
+}
+
+const Header: React.FC<Props> = ({ fetchData }) => {
+  const [values, setValues] = useState<{ request: string }>({
+    request: '',
   });
 
-  const handleForm = (e) => {
+  const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    setValues((prevValues) => ({ ...prevValues, [e.target.name]: e.target.value }));
-    console.log(values)
+// debounce?
+    // setValues((prevValues) => ({ ...prevValues, [e.target.name]: e.target.value }));
+    fetchData(values);
   };
 
   return (
@@ -22,9 +26,11 @@ const Header = () => {
       <form className="form" action="submit" onSubmit={(e) => handleForm(e)}>
         <input
           className="input"
-          name = "title"
-          value={values.title}
-          onChange={(e) => handleForm(e)}
+          name="request"
+          value={values.request}
+          onChange={(e) => {
+            setValues({ request: e.target.value });
+          }}
           type="text"
           placeholder="поиск по запросу... "
         />
