@@ -1,10 +1,12 @@
 import React from 'react';
 
+import styles from "./notFound.module.scss"
+
 const NotFound = () => {
     return (
-        <div>
-            404
-        </div>
+        <p className={styles.p}>
+            Ошибка  <span className={styles.span}>404</span>
+        </p>
     );
 };
 

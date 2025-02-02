@@ -1,17 +1,23 @@
 import React from 'react';
-import './../gallery/gallery.scss';
+
 import { Photos } from './../../common/types';
+
+import './../gallery/gallery.module.scss';
+import styles from "./../gallery/gallery.module.scss";
+
 
 const Gallery: React.FC<{ photos: Photos[] }> = ({ photos }) => {
   return (
-    <div className="container">
-      {photos
-        ? photos.map((photo) => (
-            <div className="box" key={photo.id}>
-              <img src={photo.url} alt={photo.alt} />
-            </div>
-          ))
-        : ''}
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        {photos
+          ? photos.map((photo) => (
+              <div className={styles.box} key={photo.id}>
+                <img src={photo.url} alt={photo.alt} />
+              </div>
+            ))
+          : ''}
+      </div>
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-import './header.scss';
+
+import styles from './header.module.scss';
 
 interface Props {
-  fetchData: (values: { request: string }) => void;
+  fetchData: (values: { request: string | undefined}) => void;
 }
 
 const Header: React.FC<Props> = ({ fetchData }) => {
@@ -13,19 +14,19 @@ const Header: React.FC<Props> = ({ fetchData }) => {
 
   const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-// debounce?
+    // debounce?
     // setValues((prevValues) => ({ ...prevValues, [e.target.name]: e.target.value }));
     fetchData(values);
   };
 
   return (
-    <div className="header">
-      <a href="#" className="logo">
+    <div className={styles.header}>
+      <a href="#" className={styles.logo}>
         glimsy
       </a>
-      <form className="form" action="submit" onSubmit={(e) => handleForm(e)}>
+      <form className={styles.form} action="submit" onSubmit={(e) => handleForm(e)}>
         <input
-          className="input"
+          className={styles.input}
           name="request"
           value={values.request}
           onChange={(e) => {
@@ -34,7 +35,7 @@ const Header: React.FC<Props> = ({ fetchData }) => {
           type="text"
           placeholder="поиск по запросу... "
         />
-        <button className="button">Найти</button>
+        <button className={styles.button}>Найти</button>
       </form>
     </div>
   );

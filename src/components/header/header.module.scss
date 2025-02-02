@@ -12,14 +12,12 @@
   margin: 0 20px 0 0;
   font-size: 36px;
   font-weight: 700;
-}
-
-.logo::first-letter {
-  color: #e4807b;
+  &::first-letter{
+    color: #e4807b;
+  }
 }
 
 .form{
-// display: flex;
 position:relative;
 width:100%;
 }
@@ -30,10 +28,9 @@ width:100%;
   border-radius: 7px;
   background-color: #fffcf5;
   color: gray;
-}
-
-.input:focus {
-  outline: solid #e4807b 2px;
+  &:focus{
+    outline: solid #e4807b 2px;
+  }
 }
 
 .button{
@@ -41,8 +38,9 @@ width:100%;
   right: 20px;
   color:#374375;
   padding: 10px;
+  &:hover{
+    color:#e4807b;
+  }
 }
 
-.button:hover{
-  color:#e4807b;
-}
+

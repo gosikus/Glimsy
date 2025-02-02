@@ -1,13 +1,17 @@
+.wrapper {
+  width: 1200px;
+}
+
 .container {
-    padding-top: 90px;
   columns: 4;
-  margin: auto;
-  max-width: 1200px;
+  column-gap: 20px;
+  width: 100%;
 }
 
 .box {
-  width: 100%;
+  max-width: 100%;
   break-inside: avoid;
+  display: block;
 }
 
 .box img {
